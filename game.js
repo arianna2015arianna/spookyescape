@@ -89,6 +89,18 @@
   // Typewriter-ish text for atmosphere
   let typingTimeout = null;
   function typeText(el, text) {
+    // Skip typewriter effect on small/touch devices or if user prefers reduced motion
+    try {
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const coarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+      if (prefersReduced || coarsePointer || window.innerWidth < 600) {
+        el.textContent = text;
+        return;
+      }
+    } catch (e) {
+      // ignore matchMedia errors
+    }
+
     if (typingTimeout) { clearTimeout(typingTimeout); typingTimeout = null; }
     el.textContent = "";
     let i = 0;

@@ -7,7 +7,7 @@
 }
 
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,#060607 0%, #0b0b0d 100%);color:var(--text)}
+html,body{min-height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,#060607 0%, #0b0b0d 100%);color:var(--text);-webkit-overflow-scrolling:touch;touch-action:auto}
 header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:rgba(0,0,0,0.2);backdrop-filter:blur(4px)}
 h1{margin:0;font-size:1.2rem;letter-spacing:1px}
 .controls button{margin-left:8px;padding:6px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.2));color:var(--text);cursor:pointer}
@@ -19,7 +19,7 @@ main{display:flex;gap:18px;padding:18px;max-width:1100px;margin:18px auto;width:
 #inventory{list-style:none;padding:0;margin:0;min-height:60px}
 #inventory li{padding:6px 8px;border-radius:6px;margin-bottom:6px;background:rgba(255,255,255,0.01);display:flex;justify-content:space-between;align-items:center}
 
-#game{flex:1;background:linear-gradient(180deg,#0c0c0e,#0b0b0d);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);min-height:360px;display:flex;flex-direction:column;gap:12px}
+#game{flex:1;background:linear-gradient(180deg,#0c0c0e,#0b0b0d);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);min-height:360px;display:flex;flex-direction:column;gap:12px;overflow:auto;max-height:calc(100vh - 160px)}
 .title{font-size:1.1rem;font-weight:600;color:var(--accent)}
 .desc{white-space:pre-wrap;line-height:1.45;min-height:120px;outline:none;padding:8px;border-radius:8px;background:rgba(255,255,255,0.01)}
 .exits, .items{display:flex;flex-wrap:wrap;gap:8px}
@@ -34,4 +34,5 @@ footer{padding:8px 18px;text-align:center;color:var(--muted)}
   main{flex-direction:column}
   #sidebar{width:100%;order:2;display:flex;flex-direction:row;gap:8px;overflow:auto}
   .touch-controls{display:flex;flex-direction:column;align-items:center}
+  #game{max-height:none}
 }
